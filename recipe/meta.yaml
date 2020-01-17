@@ -1,5 +1,5 @@
 {% set name = "code-server" %}
-{% set version = "2.1692-vsc1.39.2" %}
+{% set version = "2.1698" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/cdr/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 73292bbdc857443210d8d7b4a641683a31d1039aef69c374480000b544a7307b
+  sha256: 2bf79a1ad706fa9d24278a57a8faa9a9020d241b0c24d92b833adbf72d5502c3
   patches:
     - node-binary.patch
 
