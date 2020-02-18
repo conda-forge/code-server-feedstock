@@ -1,13 +1,14 @@
 {% set name = "code-server" %}
-{% set version = "2.1692-vsc1.39.2" %}
+{% set version = "2.1698-vsc1.41.1" %}
+{% set base_version = version.split("-")[0] %}
 
 package:
   name: {{ name|lower }}
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/cdr/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 73292bbdc857443210d8d7b4a641683a31d1039aef69c374480000b544a7307b
+  url: https://github.com/cdr/{{ name }}/archive/{{ base_version }}.tar.gz
+  sha256: 653d15d88f6cc97f9580361d17d5eb6d5123d5f20674a62e60e6033f7cc146cd
   patches:
     - node-binary.patch
 
@@ -27,6 +28,7 @@ requirements:
   host:
     - nodejs 10.*
     - libxkbfile  # [linux]
+    - libsecret  # [linux]
     - xorg-libx11  # [linux]
     - icu
     - libuv
