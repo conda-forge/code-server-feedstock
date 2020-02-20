@@ -22,24 +22,14 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - python 2.7.*
-    - nodejs 10.*
+    - nodejs 12.*
     - yarn
     - pkg-config  # [linux]
   host:
-    - nodejs 10.*
+    - nbin 1.2.7.*
     - libxkbfile  # [linux]
     - libsecret  # [linux]
     - xorg-libx11  # [linux]
-    - icu
-    - libuv
-    - openssl
-    - zlib
-  run:
-    - nodejs 10.*
-    - icu
-    - openssl
-    - libuv
-    - zlib
 
 test:
   commands:
