@@ -30,6 +30,15 @@ requirements:
     - libxkbfile  # [linux]
     - libsecret  # [linux]
     - xorg-libx11  # [linux]
+  run:
+    - vs2015_runtime  # [win]
+    - icu  # [not win]
+    - libsecret  # [linux]
+    - libuv  # [not win]
+    - libxkbfile  # [linux]
+    - openssl >=1.1.1d  # [not win]
+    - xorg-libx11  # [linux]
+    - zlib  # [not win]
 
 test:
   commands:
