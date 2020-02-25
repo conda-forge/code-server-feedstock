@@ -25,6 +25,7 @@ requirements:
     - nodejs 12.*
     - yarn
     - pkg-config  # [linux]
+    - ripgrep
   host:
     - nbin 1.2.7.*
     - libxkbfile  # [linux]
@@ -39,6 +40,8 @@ requirements:
     - openssl >=1.1.1d  # [not win]
     - xorg-libx11  # [linux]
     - zlib  # [not win]
+  run_constrained:  # [osx]
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
 
 test:
   commands:
