@@ -1,13 +1,14 @@
 {% set name = "code-server" %}
-{% set version = "2.1692-vsc1.39.2" %}
+{% set version = "2.1698-vsc1.41.1" %}
+{% set base_version = version.split("-")[0] %}
 
 package:
   name: {{ name|lower }}
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/cdr/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 73292bbdc857443210d8d7b4a641683a31d1039aef69c374480000b544a7307b
+  url: https://github.com/cdr/{{ name }}/archive/{{ base_version }}.tar.gz
+  sha256: 653d15d88f6cc97f9580361d17d5eb6d5123d5f20674a62e60e6033f7cc146cd
   patches:
     - node-binary.patch
 
@@ -21,23 +22,26 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - python 2.7.*
-    - nodejs 10.*
+    - nodejs 12.*
     - yarn
     - pkg-config  # [linux]
+    - ripgrep
   host:
-    - nodejs 10.*
+    - nbin 1.2.7.*
     - libxkbfile  # [linux]
+    - libsecret  # [linux]
     - xorg-libx11  # [linux]
-    - icu
-    - libuv
-    - openssl
-    - zlib
   run:
-    - nodejs 10.*
-    - icu
-    - openssl
-    - libuv
-    - zlib
+    - vs2015_runtime  # [win]
+    - icu  # [not win]
+    - libsecret  # [linux]
+    - libuv  # [not win]
+    - libxkbfile  # [linux]
+    - openssl >=1.1.1d  # [not win]
+    - xorg-libx11  # [linux]
+    - zlib  # [not win]
+  run_constrained:  # [osx]
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
 
 test:
   commands:
