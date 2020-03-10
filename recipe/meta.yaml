@@ -1,16 +1,16 @@
 {% set name = "code-server" %}
-{% set version = "2.1698-vsc1.41.1" %}
-{% set base_version = version.split("-")[0] %}
+{% set version = "3.0.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/cdr/{{ name }}/archive/{{ base_version }}.tar.gz
-  sha256: 653d15d88f6cc97f9580361d17d5eb6d5123d5f20674a62e60e6033f7cc146cd
-  patches:
-    - node-binary.patch
+  - url: https://github.com/cdr/{{ name }}/archive/{{ version }}.tar.gz
+    sha256: a6f3de4f5dff4905c62dc335a144cabbe024cd083f1e1c12af37af4d032b9514
+  - url: https://github.com/microsoft/vscode/archive/1.42.0.tar.gz
+    sha256: b2d1cc61127483590fc47a0f8336605da0bbe92b3011024c77b2c15b13a23c8e
+    folder: lib/vscode
 
 build:
   number: 0
@@ -24,22 +24,9 @@ requirements:
     - python 2.7.*
     - nodejs 12.*
     - yarn
-    - pkg-config  # [linux]
-    - ripgrep
   host:
-    - nbin 1.2.7.*
-    - libxkbfile  # [linux]
-    - libsecret  # [linux]
-    - xorg-libx11  # [linux]
   run:
-    - vs2015_runtime  # [win]
-    - icu  # [not win]
-    - libsecret  # [linux]
-    - libuv  # [not win]
-    - libxkbfile  # [linux]
-    - openssl >=1.1.1d  # [not win]
-    - xorg-libx11  # [linux]
-    - zlib  # [not win]
+    - nodejs >=10,<13
   run_constrained:  # [osx]
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
 
@@ -52,9 +39,9 @@ about:
   license: MIT
   license_family: MIT
   license_file:
-   - LICENSE
-   - LICENSE.vscode.txt
-   - ThirdPartyNotices.vscode.txt
+   - LICENSE.txt
+   - lib/vscode/LICENSE.txt
+   - lib/vscode/ThirdPartyNotices.txt
   summary: 'Run VS Code on a remote server.'
 
 extra:
