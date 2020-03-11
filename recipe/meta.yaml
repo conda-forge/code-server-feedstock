@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/cdr/{{ name }}/archive/{{ version }}.tar.gz
-    sha256: a6f3de4f5dff4905c62dc335a144cabbe024cd083f1e1c12af37af4d032b9514
+    sha256: b94a8baec85ca9a5ce8dd0e9add1a3b3ed448b941084301c0afab48c0fcf6ba0
   - url: https://github.com/microsoft/vscode/archive/1.42.0.tar.gz
     sha256: b2d1cc61127483590fc47a0f8336605da0bbe92b3011024c77b2c15b13a23c8e
     folder: lib/vscode
