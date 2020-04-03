@@ -25,8 +25,14 @@ requirements:
     - nodejs 12.*
     - yarn
   host:
+    - libxkbfile  # [linux]
+    - libsecret  # [linux]
+    - xorg-libx11  # [linux]
   run:
     - nodejs >=10,<13
+    - libxkbfile  # [linux]
+    - libsecret  # [linux]
+    - xorg-libx11  # [linux]
   run_constrained:  # [osx]
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
 
