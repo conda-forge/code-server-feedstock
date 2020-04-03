@@ -1,5 +1,5 @@
 {% set name = "code-server" %}
-{% set version = "3.0.0" %}
+{% set version = "3.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,9 +7,9 @@ package:
 
 source:
   - url: https://github.com/cdr/{{ name }}/archive/{{ version }}.tar.gz
-    sha256: b94a8baec85ca9a5ce8dd0e9add1a3b3ed448b941084301c0afab48c0fcf6ba0
-  - url: https://github.com/microsoft/vscode/archive/1.42.0.tar.gz
-    sha256: b2d1cc61127483590fc47a0f8336605da0bbe92b3011024c77b2c15b13a23c8e
+    sha256: 37c580906da3f432f58040b9f5e0f13f800516102a34e2da0e3ecc5e15e4e046
+  - url: https://github.com/microsoft/vscode/archive/1.43.2.tar.gz
+    sha256: 3dc8a809c711db89db7549d8be12e3b803e841fbcd6aa516b7a6afd09549d5e7
     folder: lib/vscode
 
 build:
