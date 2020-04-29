@@ -1,0 +1,12 @@
+diff --git a/ci/build.ts b/ci/build.ts
+index 9cf0b5b..5e9f1ab 100644
+--- a/ci/build.ts
++++ b/ci/build.ts
+@@ -181,6 +181,7 @@ class Builder {
+       ])
+     })
+ 
++    await fs.remove(path.join(vscodeBuildPath, "node_modules/playwright-core/.local-webkit"))
+     await this.copyDependencies("vs code", this.vscodeSourcePath, vscodeBuildPath, true, {
+       commit,
+       date: new Date().toISOString(),

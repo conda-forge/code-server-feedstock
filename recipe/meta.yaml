@@ -1,5 +1,5 @@
 {% set name = "code-server" %}
-{% set version = "3.0.2" %}
+{% set version = "3.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,9 @@ package:
 
 source:
   - url: https://github.com/cdr/{{ name }}/archive/{{ version }}.tar.gz
-    sha256: 37c580906da3f432f58040b9f5e0f13f800516102a34e2da0e3ecc5e15e4e046
+    sha256: d1eb04fae806be4a07bf7fb5cf2fe3ce4925a8fe4d7193017f5d6963c14dcd45
+    patches:
+      - no-local-webkit.patch
   - url: https://github.com/microsoft/vscode/archive/1.43.2.tar.gz
     sha256: 3dc8a809c711db89db7549d8be12e3b803e841fbcd6aa516b7a6afd09549d5e7
     folder: lib/vscode

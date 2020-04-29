@@ -3,15 +3,18 @@
 set -euo pipefail
 set -x
 
-# export NODE_BINARY_PATH=${PREFIX}/bin/node-nbin
+export MINIFY="true"
+export VERSION=$(grep version ./package.json | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[:space:]')
 
 yarn
+npm install -g typescript
 
 pushd lib/vscode
 patch -p1 <../../ci/vscode.patch
 yarn
-npm rebuild
 popd
+
+rm -rf lib/vscode/node_modules/playwright-core/.local-webkit
 
 yarn build
 mkdir -p ${PREFIX}/share/code-server
