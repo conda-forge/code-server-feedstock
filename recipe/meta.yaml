@@ -1,16 +1,17 @@
 {% set name = "code-server" %}
-{% set version = "2.1698-vsc1.41.1" %}
-{% set base_version = version.split("-")[0] %}
+{% set version = "3.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/cdr/{{ name }}/archive/{{ base_version }}.tar.gz
-  sha256: 653d15d88f6cc97f9580361d17d5eb6d5123d5f20674a62e60e6033f7cc146cd
-  patches:
-    - node-binary.patch
+  url: https://github.com/cdr/code-server/releases/download/{{ version }}/code-server-{{ version }}-linux-x86_64.tar.gz  # [linux]
+  sha256: a8157e8766d6a0e255c72db25e8677a57adb8d889d653e78750b4d26a6ff7400  # [linux]
+  url: https://github.com/cdr/code-server/releases/download/{{ version }}/code-server-{{ version }}-darwin-x86_64.zip  # [osx]
+  sha256: 8efa5d9c9d396048a9a98cb9aaf5564564a8f27d7317038cb805330915248037  # [osx]
+  folder:
+    code-server
 
 build:
   number: 0
@@ -18,30 +19,9 @@ build:
   skip: true  # [win]
 
 requirements:
-  build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - python 2.7.*
-    - nodejs 12.*
-    - yarn
-    - pkg-config  # [linux]
-    - ripgrep
   host:
-    - nbin 1.2.7.*
-    - libxkbfile  # [linux]
-    - libsecret  # [linux]
-    - xorg-libx11  # [linux]
   run:
-    - vs2015_runtime  # [win]
-    - icu  # [not win]
-    - libsecret  # [linux]
-    - libuv  # [not win]
-    - libxkbfile  # [linux]
-    - openssl >=1.1.1d  # [not win]
-    - xorg-libx11  # [linux]
-    - zlib  # [not win]
-  run_constrained:  # [osx]
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
+    nodejs 12.*
 
 test:
   commands:
@@ -52,9 +32,8 @@ about:
   license: MIT
   license_family: MIT
   license_file:
-   - LICENSE
-   - LICENSE.vscode.txt
-   - ThirdPartyNotices.vscode.txt
+   - code-server/LICENSE.txt
+   - code-server/ThirdPartyNotices.txt
   summary: 'Run VS Code on a remote server.'
 
 extra:
