@@ -14,7 +14,7 @@ source:
     code-server
 
 build:
-  number: 0
+  number: 1
   binary_relocation: False  # [osx]
   skip: true  # [win]
 

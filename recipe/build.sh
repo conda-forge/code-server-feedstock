@@ -10,3 +10,10 @@ cat <<'EOF' >${PREFIX}/bin/code-server
 node ${CONDA_PREFIX}/share/code-server/out/node/entry.js $*
 EOF
 chmod +x ${PREFIX}/bin/code-server
+
+# Remove unnecessary resources
+find ${PREFIX}/share/code-server -name '*.map' -delete
+rm -rf \
+  ${PREFIX}/share/code-server/node \
+  ${PREFIX}/share/code-server/lib/vscode/node_modules/.cache \
+  /Users/uwe/Development/code-server-feedstock/tmp/share/code-server/lib/vscode/out/vs/workbench/*.map
