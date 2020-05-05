@@ -16,4 +16,4 @@ find ${PREFIX}/share/code-server -name '*.map' -delete
 rm -rf \
   ${PREFIX}/share/code-server/node \
   ${PREFIX}/share/code-server/lib/vscode/node_modules/.cache \
-  /Users/uwe/Development/code-server-feedstock/tmp/share/code-server/lib/vscode/out/vs/workbench/*.map
+  ${PREFIX}/share/code-server/lib/vscode/out/vs/workbench/*.map
