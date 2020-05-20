@@ -1,20 +1,20 @@
 {% set name = "code-server" %}
-{% set version = "3.2.0" %}
+{% set version = "3.3.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/cdr/code-server/releases/download/{{ version }}/code-server-{{ version }}-linux-x86_64.tar.gz  # [linux]
-  sha256: a8157e8766d6a0e255c72db25e8677a57adb8d889d653e78750b4d26a6ff7400  # [linux]
-  url: https://github.com/cdr/code-server/releases/download/{{ version }}/code-server-{{ version }}-darwin-x86_64.zip  # [osx]
-  sha256: 8efa5d9c9d396048a9a98cb9aaf5564564a8f27d7317038cb805330915248037  # [osx]
+  url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-amd64.tar.gz  # [linux]
+  sha256: 57b9855b20f511e22776ee8a53d1ff30f864498814c4c0b0af3510f71d7a2969  # [linux]
+  url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-macos-amd64.tar.gz  # [osx]
+  sha256: b72b46476204b69c57df35f765c1e82d1770bc5970e2addfdbb21552e6967199  # [osx]
   folder:
     code-server
 
 build:
-  number: 2
+  number: 0
   binary_relocation: False  # [osx]
   skip: true  # [win]
 
