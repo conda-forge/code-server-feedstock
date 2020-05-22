@@ -21,6 +21,7 @@ build:
 requirements:
   host:
   run:
+    - libgcc
 
 test:
   commands:
