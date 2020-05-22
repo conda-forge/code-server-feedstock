@@ -14,14 +14,13 @@ source:
     code-server
 
 build:
-  number: 1
+  number: 2
   binary_relocation: False  # [osx]
   skip: true  # [win]
 
 requirements:
   host:
   run:
-    - nodejs >=12
 
 test:
   commands:
