@@ -1,5 +1,5 @@
 {% set name = "code-server" %}
-{% set version = "3.3.1" %}
+{% set version = "3.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,21 +7,20 @@ package:
 
 source:
   url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-amd64.tar.gz  # [linux]
-  sha256: 57b9855b20f511e22776ee8a53d1ff30f864498814c4c0b0af3510f71d7a2969  # [linux]
+  sha256: 918c28696b73b96dc9361977f93e788d5c8884b5d4a088d206f05d5b8bccb738  # [linux]
   url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-macos-amd64.tar.gz  # [osx]
-  sha256: b72b46476204b69c57df35f765c1e82d1770bc5970e2addfdbb21552e6967199  # [osx]
-  folder:
-    code-server
+  sha256: 5099e7f26a28f3d8fe71e453c1d26e4f61b2af5a1c1a02ae17b7116a0173c96c  # [osx]
+  folder: code-server
 
 build:
-  number: 1
-  binary_relocation: False  # [osx]
+  number: 0
+  binary_relocation: false  # [osx]
   skip: true  # [win]
 
 requirements:
   host:
   run:
-    - nodejs >=12
+    - nodejs 12.*
 
 test:
   commands:
@@ -32,9 +31,9 @@ about:
   license: MIT
   license_family: MIT
   license_file:
-   - code-server/LICENSE.txt
-   - code-server/ThirdPartyNotices.txt
-  summary: 'Run VS Code on a remote server.'
+    - code-server/LICENSE.txt
+    - code-server/ThirdPartyNotices.txt
+  summary: Run VS Code on a remote server.
 
 extra:
   recipe-maintainers:
