@@ -20,7 +20,7 @@ build:
 requirements:
   host:
   run:
-    - nodejs >=12
+    - nodejs 12.*
 
 test:
   commands:
