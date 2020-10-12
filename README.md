@@ -5,11 +5,9 @@ Home: https://github.com/cdr/code-server
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/code-server-feedstock/blob/master/LICENSE.txt)
 
 Summary: Run VS Code on a remote server.
-
-
 
 Current build status
 ====================
