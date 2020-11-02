@@ -7,9 +7,9 @@ package:
 
 source:
   url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-amd64.tar.gz  # [linux]
-  sha256: 1ee55032937fcf228dce4e3160f2e6bdbd385a9a3ac5795ac243f056ee020ce2  # [linux]
+  sha256: bbe4ef9585e093b3521deb34a0820d2136172271862d6396df21c2e9a26c6374  # [linux]
   url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-macos-amd64.tar.gz  # [osx]
-  sha256: e85851ebdd009ebdaddd0876bfb3aed44bd4111b04e6084e9c56d9e0cb28c843  # [osx]
+  sha256: f0aa50a23f8f9b3ef1257c2c22fd31df4b91ee65f7cc83f354b04c8f86ee2adb  # [osx]
   folder: code-server
 
 build:
