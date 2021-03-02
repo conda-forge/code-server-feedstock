@@ -13,7 +13,7 @@ source:
   folder: code-server
 
 build:
-  number: 0
+  number: 1
   binary_relocation: false  # [osx]
   skip: true  # [win]
 
