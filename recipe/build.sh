@@ -5,8 +5,14 @@ set -euo pipefail
 mkdir $PREFIX/share
 cp -r code-server $PREFIX/share/
 mkdir -p ${PREFIX}/bin
+mkdir -p ${PREFIX}/share/code-server/extensions
 cat <<'EOF' >${PREFIX}/bin/code-server
 #!/bin/bash
+EXTENSIONS_DIR_ARG="--extensions-dir"
+EXTENSIONS_DIR_VAL="${CONDA_PREFIX}/share/code-server/extensions"
+if [[ "$*" != *"${EXTENSIONS_DIR_ARG}"* ]]; then
+    set -- "$*" "${EXTENSIONS_DIR_ARG} ${EXTENSIONS_DIR_VAL}"
+fi
 node ${CONDA_PREFIX}/share/code-server/out/node/entry.js $*
 EOF
 chmod +x ${PREFIX}/bin/code-server
