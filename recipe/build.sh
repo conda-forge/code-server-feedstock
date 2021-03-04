@@ -8,14 +8,33 @@ mkdir -p ${PREFIX}/bin
 mkdir -p ${PREFIX}/share/code-server/extensions
 cat <<'EOF' >${PREFIX}/bin/code-server
 #!/bin/bash
+
+PREFIX_DIR=$(dirname ${BASH_SOURCE}})
+
+# Make PREDIX_DIR absolute
+if [[ $(uname) == 'Linux' ]]; then
+  PREFIX_DIR=$(readlink -f ${PREFIX_DIR})
+else
+  pushd ${PREFIX_DIR}
+  PREFIX_DIR=$(pwd -P)
+  popd
+fi
+
+# Go one level up
+PREFIX_DIR=$(dirname ${PREFIX_DIR})
+
 EXTENSIONS_DIR_ARG="--extensions-dir"
-EXTENSIONS_DIR_VAL="${CONDA_PREFIX}/share/code-server/extensions"
+EXTENSIONS_DIR_VAL="${PREFIX_DIR}/share/code-server/extensions"
 if [[ "$*" != *"${EXTENSIONS_DIR_ARG}"* ]]; then
     set -- "$*" "${EXTENSIONS_DIR_ARG} ${EXTENSIONS_DIR_VAL}"
 fi
-node ${CONDA_PREFIX}/share/code-server/out/node/entry.js $*
+
+node ${PREFIX_DIR}/share/code-server/out/node/entry.js $*
 EOF
 chmod +x ${PREFIX}/bin/code-server
+
+# Directly check whether the code-server call also works inside of conda-build
+code-server --help
 
 # Remove unnecessary resources
 find ${PREFIX}/share/code-server -name '*.map' -delete
