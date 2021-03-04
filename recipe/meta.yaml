@@ -15,12 +15,13 @@ source:
   folder: code-server
 
 build:
-  number: 2
+  number: 3
   binary_relocation: false  # [osx]
   skip: true  # [win]
 
 requirements:
   host:
+    - nodejs 12.*
   run:
     - nodejs 12.*
 
