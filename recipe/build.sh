@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -euo pipefail
+set -exuo pipefail
 
-mkdir $PREFIX/share
+mkdir -p $PREFIX/share
 cp -r code-server $PREFIX/share/
 mkdir -p ${PREFIX}/bin
 mkdir -p ${PREFIX}/share/code-server/extensions
