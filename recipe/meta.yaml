@@ -21,6 +21,7 @@ build:
 
 requirements:
   host:
+    - nodejs 12.*
   run:
     - nodejs 12.*
 
