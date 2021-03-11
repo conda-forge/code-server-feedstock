@@ -26,11 +26,13 @@ requirements:
     - nodejs 12.*  # [not (osx and arm64)]
     - nodejs >=15  # [osx and arm64]
     - git
+    - git-lfs
     - jq
     - yarn
     - pkg-config
   host:
     - libxkbfile  # [linux]
+    - xorg-kbproto  # [linux]
   run:
     - nodejs 12.*  # [not (osx and arm64)]
     - nodejs >=15  # [osx and arm64]
