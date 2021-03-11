@@ -14,6 +14,9 @@ fi
 # Build from source
 pushd code-server
   git init .
+  if [[ "${target_platform}" == osx-* ]]; then
+    git config core.precomposeunicode false
+  fi
   git add .
   git config user.email "you@example.com"
   git config user.name "Your Name"

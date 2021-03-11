@@ -28,6 +28,8 @@ requirements:
     - git
     - jq
     - yarn
+  host:
+    - libxkbfile  # [linux]
   run:
     - nodejs 12.*  # [not (osx and arm64)]
     - nodejs >=15  # [osx and arm64]
