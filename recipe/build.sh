@@ -15,6 +15,8 @@ fi
 pushd code-server
   git init .
   git add .
+  git config user.email "you@example.com"
+  git config user.name "Your Name"
   git commit -m "Initial commit"
   git tag ${PKG_VERSION}
   yarn --frozen-lockfile
