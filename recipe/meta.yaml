@@ -6,11 +6,11 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  # url: https://github.com/cdr/code-server/archive/v{{ version }}.tar.gz
-  # sha256: a23ea7376afd6ce6b2a99515aacc4489eeebacd789b6ccd10c17fe3eac51946f
-  git_url: https://github.com/cdr/code-server
-  git_rev: v{{ version }}
-  git_depth: 1
+  url: https://github.com/cdr/code-server/archive/v{{ version }}.tar.gz
+  sha256: a23ea7376afd6ce6b2a99515aacc4489eeebacd789b6ccd10c17fe3eac51946f
+  #git_url: https://github.com/cdr/code-server
+  #git_rev: v{{ version }}
+  #git_depth: 1
   folder: code-server
   patches:
     - osx-arm64.patch  # [osx and arm64]
@@ -25,6 +25,7 @@ requirements:
     - {{ compiler('cxx') }}
     - nodejs 12.*  # [not (osx and arm64)]
     - nodejs >=15  # [osx and arm64]
+    - git
     - jq
     - yarn
   run:

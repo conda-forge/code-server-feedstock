@@ -13,6 +13,10 @@ fi
 
 # Build from source
 pushd code-server
+  git init .
+  git add .
+  git commit -m "Initial commit"
+  git tag ${PKG_VERSION}
   yarn --frozen-lockfile
   yarn build
   yarn build:vscode
