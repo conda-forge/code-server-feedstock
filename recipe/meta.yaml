@@ -28,6 +28,7 @@ requirements:
     - git
     - jq
     - yarn
+    - pkg-config
   host:
     - libxkbfile  # [linux]
   run:
