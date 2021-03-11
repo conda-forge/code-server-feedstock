@@ -12,14 +12,16 @@ source:
   git_rev: v{{ version }}
   folder: code-server
   patches:
-    - osx-arm64.patch
+    - osx-arm64.patch  # [osx and arm64]
 
 build:
   number: 1
   skip: true  # [win]
 
 requirements:
-  host:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - nodejs 12.*  # [not (osx and arm64)]
     - nodejs >=15  # [osx and arm64]
     - jq

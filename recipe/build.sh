@@ -2,6 +2,15 @@
 
 set -exuo pipefail
 
+export npm_config_build_from_source=true
+if [[ "${target_platform}" == "osx-arm64" ]] || [[ "${target_platform}" == "linux-aarch64" ]]; then
+  export npm_config_arch=arm64
+  export npm_config_target_arch=arm64
+else
+  export npm_config_arch=x64
+  export npm_config_target_arch=x64
+fi
+
 # Build from source
 pushd code-server
   yarn --frozen-lockfile
