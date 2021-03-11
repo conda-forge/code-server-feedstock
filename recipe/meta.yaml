@@ -6,24 +6,27 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-amd64.tar.gz  # [linux64]
-  sha256: f2648a4387c5a5be8666fb82a7b8a58274c45b91942251ab337e202e078ae8a5  # [linux64]
-  url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-arm64.tar.gz  # [aarch64]
-  sha256: 95c6a3e0c079b4c3cca2a39369662e2fc72aa4c59c77401915368d6f11c7e49c  # [aarch64]
-  url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-macos-amd64.tar.gz  # [osx]
-  sha256: 85a733c957b3ee5134ef4e1cffc4f5dc6034157e78d6c53c756134ac5a1be6bd  # [osx]
+  # url: https://github.com/cdr/code-server/archive/v{{ version }}.tar.gz
+  # sha256: a23ea7376afd6ce6b2a99515aacc4489eeebacd789b6ccd10c17fe3eac51946f
+  git_url: https://github.com/cdr/code-server
+  git_rev: v{{ version }}
   folder: code-server
+  patches:
+    - osx-arm64.patch
 
 build:
-  number: 0
-  binary_relocation: false  # [osx]
+  number: 1
   skip: true  # [win]
 
 requirements:
   host:
-    - nodejs 12.*
+    - nodejs 12.*  # [not (osx and arm64)]
+    - nodejs >=15  # [osx and arm64]
+    - jq
+    - yarn
   run:
-    - nodejs 12.*
+    - nodejs 12.*  # [not (osx and arm64)]
+    - nodejs >=15  # [osx and arm64]
 
 test:
   commands:

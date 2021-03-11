@@ -1,0 +1,27 @@
+diff --git a/ci/lib.sh b/ci/lib.sh
+index 96a413f1..55afb67c 100755
+--- a/ci/lib.sh
++++ b/ci/lib.sh
+@@ -36,6 +36,9 @@ os() {
+
+ arch() {
+   case "$(uname -m)" in
++  arm64)
++    echo arm64
++    ;;
+   aarch64)
+     echo arm64
+     ;;
+diff --git a/lib/vscode/package.json b/lib/vscode/package.json
+index 8c2943cd..33b72a23 100644
+--- a/lib/vscode/package.json
++++ b/lib/vscode/package.json
+@@ -185,7 +185,7 @@
+     "opn": "^6.0.0",
+     "optimist": "0.3.5",
+     "p-all": "^1.0.0",
+-    "playwright": "1.7.1",
++    "playwright": "1.8.0",
+     "pump": "^1.0.1",
+     "queue": "3.0.6",
+     "rcedit": "^1.1.0",

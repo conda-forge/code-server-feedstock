@@ -2,8 +2,27 @@
 
 set -exuo pipefail
 
-mkdir -p $PREFIX/share
-cp -r code-server $PREFIX/share/
+# Build from source
+pushd code-server
+  yarn --frozen-lockfile
+  yarn build
+  yarn build:vscode
+  yarn release
+  yarn release:standalone
+  # TODO: Adjust the code-server script to reference node from PATH
+  # yarn test:standalone-release
+  yarn package
+popd
+
+# Install tarball into ${PREFIX}
+mkdir -p ${PREFIX}/share
+pushd code-server/release-packages
+  tar xf code-server-*.tar.gz
+  rm code-server-*.tar.gz
+  mv code-server-* code-server
+  cp -r code-server ${PREFIX}/share/
+popd
+
 mkdir -p ${PREFIX}/bin
 mkdir -p ${PREFIX}/share/code-server/extensions
 cat <<'EOF' >${PREFIX}/bin/code-server
