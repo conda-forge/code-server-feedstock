@@ -12,3 +12,5 @@ docker_image:
 - quay.io/condaforge/linux-anvil-comp7
 target_platform:
 - linux-aarch64
+build_platform:
+- linux-64
