@@ -27,7 +27,7 @@ pushd code-server
   else
     yarn --frozen-lockfile
   fi
-  if [[ "${target_platform}" == "linux" ]]; then
+  if [[ "${target_platform}" == linux-* ]]; then
     # No need to build deb/rpm packages here.
     sed -ie 's/release_nfpm//g' ci/build/build-packages.sh
   fi
