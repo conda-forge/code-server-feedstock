@@ -1,3 +1,14 @@
+diff --git a/ci/build/build-code-server.sh b/ci/build/build-code-server.sh
+index 1ede7a88..5571c13d 100755
+--- a/ci/build/build-code-server.sh
++++ b/ci/build/build-code-server.sh
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env bash
+-set -euo pipefail
++set -euxo pipefail
+
+ # Builds code-server into out and the frontend into dist.
+
 diff --git a/ci/lib.sh b/ci/lib.sh
 index 96a413f1..55afb67c 100755
 --- a/ci/lib.sh
