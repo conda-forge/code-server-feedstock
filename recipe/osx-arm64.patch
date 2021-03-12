@@ -25,3 +25,16 @@ index 8c2943cd..33b72a23 100644
      "pump": "^1.0.1",
      "queue": "3.0.6",
      "rcedit": "^1.1.0",
+diff --git a/ci/dev/postinstall.sh b/ci/dev/postinstall.sh
+index 0ffa772f..84d03d8f 100755
+--- a/ci/dev/postinstall.sh
++++ b/ci/dev/postinstall.sh
+@@ -11,7 +11,7 @@ main() {
+   cd ..
+
+   cd lib/vscode
+-  yarn ${CI+--frozen-lockfile}
++  yarn
+
+   symlink_asar
+ }
