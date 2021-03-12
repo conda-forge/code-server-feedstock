@@ -29,6 +29,7 @@ requirements:
     - git-lfs
     - jq
     - yarn
+    - rsync
     - pkg-config
   host:
     - libxkbfile  # [linux]

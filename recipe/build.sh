@@ -22,7 +22,11 @@ pushd code-server
   git config user.name "Your Name"
   git commit -m "Initial commit"
   git tag ${PKG_VERSION}
-  yarn --frozen-lockfile
+  if  [[ "${target_platform}" == "osx-arm64" ]]; then
+    yarn
+  else
+    yarn --frozen-lockfile
+  fi
   yarn build
   yarn build:vscode
   yarn release
