@@ -29,7 +29,7 @@ pushd code-server
   fi
   if [[ "${target_platform}" == linux-* ]]; then
     # No need to build deb/rpm packages here.
-    sed -ie 's/release_nfpm/echo 1/g' ci/build/build-packages.sh
+    sed -ie 's/release_nfpm$/echo 1/g' ci/build/build-packages.sh
   fi
   yarn build
   yarn build:vscode
