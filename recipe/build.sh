@@ -2,8 +2,53 @@
 
 set -exuo pipefail
 
-mkdir -p $PREFIX/share
-cp -r code-server $PREFIX/share/
+export npm_config_build_from_source=true
+if [[ "${target_platform}" == "osx-arm64" ]] || [[ "${target_platform}" == "linux-aarch64" ]]; then
+  export npm_config_arch=arm64
+  export npm_config_target_arch=arm64
+else
+  export npm_config_arch=x64
+  export npm_config_target_arch=x64
+fi
+
+# Build from source
+pushd code-server
+  git init .
+  if [[ "${target_platform}" == osx-* ]]; then
+    git config core.precomposeunicode false
+  fi
+  git add .
+  git config user.email "you@example.com"
+  git config user.name "Your Name"
+  git commit -m "Initial commit"
+  git tag ${PKG_VERSION}
+  if  [[ "${target_platform}" == "osx-arm64" ]]; then
+    yarn
+  else
+    yarn --frozen-lockfile
+  fi
+  if [[ "${target_platform}" == linux-* ]]; then
+    # No need to build deb/rpm packages here.
+    sed -ie 's/release_nfpm$/echo 1/g' ci/build/build-packages.sh
+  fi
+  yarn build
+  yarn build:vscode
+  yarn release
+  yarn release:standalone
+  # TODO: Adjust the code-server script to reference node from PATH
+  # yarn test:standalone-release
+  yarn package
+popd
+
+# Install tarball into ${PREFIX}
+mkdir -p ${PREFIX}/share
+pushd code-server/release-packages
+  tar xf code-server-*.tar.gz
+  rm code-server-*.tar.gz
+  mv code-server-* code-server
+  cp -r code-server ${PREFIX}/share/
+popd
+
 mkdir -p ${PREFIX}/bin
 mkdir -p ${PREFIX}/share/code-server/extensions
 cat <<'EOF' >${PREFIX}/bin/code-server

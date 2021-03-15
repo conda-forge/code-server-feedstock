@@ -1,0 +1,51 @@
+diff --git a/ci/build/build-code-server.sh b/ci/build/build-code-server.sh
+index 1ede7a88..5571c13d 100755
+--- a/ci/build/build-code-server.sh
++++ b/ci/build/build-code-server.sh
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env bash
+-set -euo pipefail
++set -euxo pipefail
+
+ # Builds code-server into out and the frontend into dist.
+
+diff --git a/ci/lib.sh b/ci/lib.sh
+index 96a413f1..55afb67c 100755
+--- a/ci/lib.sh
++++ b/ci/lib.sh
+@@ -36,6 +36,9 @@ os() {
+
+ arch() {
+   case "$(uname -m)" in
++  arm64)
++    echo arm64
++    ;;
+   aarch64)
+     echo arm64
+     ;;
+diff --git a/lib/vscode/package.json b/lib/vscode/package.json
+index 8c2943cd..33b72a23 100644
+--- a/lib/vscode/package.json
++++ b/lib/vscode/package.json
+@@ -185,7 +185,7 @@
+     "opn": "^6.0.0",
+     "optimist": "0.3.5",
+     "p-all": "^1.0.0",
+-    "playwright": "1.7.1",
++    "playwright": "1.8.0",
+     "pump": "^1.0.1",
+     "queue": "3.0.6",
+     "rcedit": "^1.1.0",
+diff --git a/ci/dev/postinstall.sh b/ci/dev/postinstall.sh
+index 0ffa772f..84d03d8f 100755
+--- a/ci/dev/postinstall.sh
++++ b/ci/dev/postinstall.sh
+@@ -11,7 +11,7 @@ main() {
+   cd ..
+
+   cd lib/vscode
+-  yarn ${CI+--frozen-lockfile}
++  yarn
+
+   symlink_asar
+ }
