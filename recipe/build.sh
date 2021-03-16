@@ -9,7 +9,7 @@ mkdir -p ${PREFIX}/share/code-server/extensions
 cat <<'EOF' >${PREFIX}/bin/code-server
 #!/bin/bash
 
-PREFIX_DIR=$(dirname ${BASH_SOURCE}})
+PREFIX_DIR=$(dirname ${BASH_SOURCE})
 
 # Make PREDIX_DIR absolute
 if [[ $(uname) == 'Linux' ]]; then
