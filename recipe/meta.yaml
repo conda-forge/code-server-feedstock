@@ -21,9 +21,9 @@ build:
 
 requirements:
   host:
-    - nodejs 12.*
+    - nodejs 14.*
   run:
-    - nodejs 12.*
+    - nodejs 14.*
 
 test:
   commands:
