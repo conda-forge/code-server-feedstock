@@ -3,7 +3,7 @@
 set -exuo pipefail
 
 mkdir -p $PREFIX/share
-cp -P -r code-server $PREFIX/share/
+cp -R code-server $PREFIX/share/
 mkdir -p ${PREFIX}/bin
 mkdir -p ${PREFIX}/share/code-server/extensions
 cat <<'EOF' >${PREFIX}/bin/code-server
