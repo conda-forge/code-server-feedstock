@@ -23,9 +23,9 @@ requirements:
   build:
     - sysroot_linux-64 2.17  # [linux64]
   host:
-    - nodejs 14.*
+    - nodejs 16.*
   run:
-    - nodejs 14.*
+    - nodejs 16.*
 
 test:
   commands:
@@ -36,7 +36,7 @@ about:
   license: MIT
   license_family: MIT
   license_file:
-    - code-server/LICENSE.txt
+    - code-server/LICENSE
     - code-server/ThirdPartyNotices.txt
   summary: Run VS Code on a remote server.
 
