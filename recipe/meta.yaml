@@ -1,5 +1,5 @@
 {% set name = "code-server" %}
-{% set version = "4.5.2" %}
+{% set version = "4.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-amd64.tar.gz  # [linux64]
-  sha256: 9de1d55afcd4793519e26a52a1f6efc9f5f3ac7a46680e8125d03e02a63e8d91  # [linux64]
+  sha256: c25d6167ddec41b28a7abeb73a0d0fe1d7af150e87cf185c01abb9736e222ee9  # [linux64]
   url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-arm64.tar.gz  # [aarch64]
-  sha256: 1c0f4b3eaf99c1ba9d2bf87084fa64f9d1e3f64d5bc417226aeb446cafacc08e  # [aarch64]
+  sha256: 1a3054d3ed2a0ea453f11ea310f3c9f09c442beb1cc804ed4d5f3b0f4595b96a  # [aarch64]
   url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-macos-amd64.tar.gz  # [osx]
-  sha256: b61cf50e3dc1bd3f8b0b63c0ffb2f110ec23e167ef4ab69d0689b9b7b37b1831  # [osx]
+  sha256: ba055a1bdeff75d2f70ea93924a5cf6fe2c5a5c54e15fd137a68e6949f8e481f  # [osx]
   folder: code-server
 
 build:
