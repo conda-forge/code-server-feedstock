@@ -4,6 +4,12 @@ set -exuo pipefail
 
 mkdir -p $PREFIX/share
 cp -R code-server $PREFIX/share/
+
+# Remove faulty files
+if [[ "${target_platform}" == osx-* ]]; then
+  find $PREFIX/share -name node_gyp_bins | xargs rm -r
+fi
+
 mkdir -p ${PREFIX}/bin
 mkdir -p ${PREFIX}/share/code-server/extensions
 cat <<'EOF' >${PREFIX}/bin/code-server
