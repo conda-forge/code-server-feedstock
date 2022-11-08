@@ -6,7 +6,7 @@ mkdir -p $PREFIX/share
 cp -R code-server $PREFIX/share/
 
 # Remove faulty files
-if [[ "${target_platform}" == osx-* ]]; then
+if [[ "${target_platform}" != "linux-aarch64" ]]; then
   find $PREFIX/share -name node_gyp_bins | xargs rm -r
 fi
 

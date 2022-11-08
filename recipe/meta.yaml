@@ -1,5 +1,5 @@
 {% set name = "code-server" %}
-{% set version = "4.8.2" %}
+{% set version = "4.8.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-amd64.tar.gz  # [linux64]
-  sha256: cac7070f96e810e8cbbbf49d634a7a1370435b2b585b59ec69cb54bd4fe78595  # [linux64]
+  sha256: 16e8b600d03eec710a7b4d6380986ba3414e7e3aa503da90b518d4fd066e220a  # [linux64]
   url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-arm64.tar.gz  # [aarch64]
-  sha256: 3430faacbc71db11c5970ea8f7e5cb52e9c75dfefdc16e78f06523a23556fb2b  # [aarch64]
+  sha256: b7b4cd77c992ea3e982d399f0e40b98707ceaf7e0960eeb84ba674f54315c595  # [aarch64]
   url: https://github.com/cdr/code-server/releases/download/v{{ version }}/code-server-{{ version }}-macos-amd64.tar.gz  # [osx]
-  sha256: e52418b154b34dfcdd07d67636db2024f4ddc892760a193b222b25f38f73d65b  # [osx]
+  sha256: 35a45665b4a02bd2fcf1cca6fcd47ebe356c283a356b77d4fbb5e22a20bc1d86  # [osx]
   folder: code-server
 
 build:
@@ -21,6 +21,7 @@ build:
 
 requirements:
   build:
+    - {{ compiler('cxx') }}
     - sysroot_linux-64 2.17  # [linux64]
   host:
     - nodejs 16.*
