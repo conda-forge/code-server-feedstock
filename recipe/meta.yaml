@@ -30,7 +30,7 @@ requirements:
 
 test:
   commands:
-    - code-server --help
+    - which code-server
 
 about:
   home: https://github.com/cdr/code-server
