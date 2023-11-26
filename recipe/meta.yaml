@@ -30,7 +30,8 @@ requirements:
 
 test:
   commands:
-    - which code-server
+    - code-server --help  # [not linux64]
+    - which code-server  # [linux64]
 
 about:
   home: https://github.com/cdr/code-server

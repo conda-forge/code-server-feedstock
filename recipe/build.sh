@@ -39,6 +39,16 @@ node ${PREFIX_DIR}/share/code-server/out/node/entry.js $*
 EOF
 chmod +x ${PREFIX}/bin/code-server
 
+if [[ "${build_platform}" == "${target_platform}" ]]; then
+    if [[ "${target_platform}" != "linux-64" ]]; then
+        # If not building for linux-64, check if the code-server call works inside of conda-build
+        code-server --help
+    else
+        # If building for linux-64, just check if code-server is in the PATH to avoid the GLIBC error
+        which code-server
+    fi
+fi
+
 # Remove unnecessary resources
 find ${PREFIX}/share/code-server -name '*.map' -delete
 rm -rf \
