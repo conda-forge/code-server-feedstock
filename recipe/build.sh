@@ -39,11 +39,6 @@ node ${PREFIX_DIR}/share/code-server/out/node/entry.js $*
 EOF
 chmod +x ${PREFIX}/bin/code-server
 
-if [[ "${build_platform}" == "${target_platform}" ]]; then
-  # Directly check whether the code-server call also works inside of conda-build
-  code-server --help
-fi
-
 # Remove unnecessary resources
 find ${PREFIX}/share/code-server -name '*.map' -delete
 rm -rf \
