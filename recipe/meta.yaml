@@ -33,7 +33,7 @@ requirements:
 
 test:
   commands:
-    - code-server --help  # [not linux64]
+    - code-server --help
 
 about:
   home: https://github.com/cdr/code-server
