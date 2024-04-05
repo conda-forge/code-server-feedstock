@@ -40,13 +40,9 @@ EOF
 chmod +x ${PREFIX}/bin/code-server
 
 if [[ "${build_platform}" == "${target_platform}" ]]; then
-    if [[ "${target_platform}" != "linux-64" ]]; then
-        # If not building for linux-64, check if the code-server call works inside of conda-build
+    if [[ "${build_platform}" == "${target_platform}" ]]; then
+        # Directly check whether the code-server call also works inside of conda-build
         code-server --help
-    else
-        # If building for linux-64, just check if code-server is in the PATH to avoid the GLIBC error
-        which code-server
-    fi
 fi
 
 # Remove unnecessary resources
