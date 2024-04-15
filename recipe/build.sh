@@ -40,10 +40,8 @@ EOF
 chmod +x ${PREFIX}/bin/code-server
 
 if [[ "${build_platform}" == "${target_platform}" ]]; then
-    if [[ "${build_platform}" == "${target_platform}" ]]; then
-        # Directly check whether the code-server call also works inside of conda-build
-        code-server --help
-    fi
+  # Directly check whether the code-server call also works inside of conda-build
+  code-server --help
 fi
 
 # Remove unnecessary resources
