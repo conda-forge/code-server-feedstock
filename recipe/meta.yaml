@@ -15,8 +15,8 @@ source:
   folder: code-server
 
 build:
-  number: 1
-  binary_relocation: false
+  number: 0
+  binary_relocation: false # [osx]
   skip: true  # [win]
 
 requirements:
