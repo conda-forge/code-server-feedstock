@@ -16,7 +16,7 @@ source:
 
 build:
   number: 2
-  binary_relocation: false # [osx]
+  binary_relocation: false  # [osx]
   skip: true  # [win]
 
 requirements:
