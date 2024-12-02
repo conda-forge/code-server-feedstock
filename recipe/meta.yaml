@@ -23,7 +23,6 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
-    - {{ stdlib("c") }}
   host:
     - nodejs 18.*
   run:
