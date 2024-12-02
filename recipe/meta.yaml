@@ -6,16 +6,12 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  {% if linux64 %}
-  url: https://github.com/coder/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-amd64.tar.gz
-  sha256: 7b60ae570dc8a4a5e56ddfdd73a7cce40b2b155b390dffa6897f815e9510a0eb
-  {% elif aarch64 %}
-  url: https://github.com/coder/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-arm64.tar.gz
-  sha256: a07b7640854619e36ecca75fe0b240c1f671e00f9c08eb2b1cb7f06bcbf39dde
-  {% elif osx %}
-  url: https://github.com/coder/code-server/releases/download/v{{ version }}/code-server-{{ version }}-macos-arm64.tar.gz
-  sha256: 6f5e4ca39d0ae7a609707fd9c761247be1ed9e33147372320a84d30c3df336c3
-  {% endif %}
+  url: https://github.com/coder/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-amd64.tar.gz  # [linux64]
+  sha256: 7b60ae570dc8a4a5e56ddfdd73a7cce40b2b155b390dffa6897f815e9510a0eb  # [linux64]
+  url: https://github.com/coder/code-server/releases/download/v{{ version }}/code-server-{{ version }}-linux-arm64.tar.gz  # [aarch64]
+  sha256: a07b7640854619e36ecca75fe0b240c1f671e00f9c08eb2b1cb7f06bcbf39dde  # [aarch64]
+  url: https://github.com/coder/code-server/releases/download/v{{ version }}/code-server-{{ version }}-macos-arm64.tar.gz  # [osx]
+  sha256: 6f5e4ca39d0ae7a609707fd9c761247be1ed9e33147372320a84d30c3df336c3  # [osx]
   folder: code-server
 
 build:
