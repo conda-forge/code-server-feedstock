@@ -15,7 +15,7 @@ source:
   folder: code-server
 
 build:
-  number: 2
+  number: 0
   binary_relocation: false  # [osx]
   skip: true  # [win]
 
@@ -32,7 +32,7 @@ requirements:
 test:
   commands:
     - code-server --help
-    - $CONDA_PREFIX/share/code-server/lib/vscode/node_modules/@vscode/ripgrep/bin/rg --version
+    - $CONDA_PREFIX/share/code-server/lib/vscode/node_modules/@vscode/ripgrep/bin/rg --version # [osx]
 
 about:
   home: https://github.com/cdr/code-server
