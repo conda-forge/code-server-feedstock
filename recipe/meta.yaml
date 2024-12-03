@@ -16,7 +16,7 @@ source:
 
 build:
   number: 0
-  binary_relocation: false  # [osx]
+  binary_relocation: false
   skip: true  # [win or target_platform == 'osx-64']
 
 requirements:
