@@ -1,5 +1,5 @@
 {% set name = "code-server" %}
-{% set version = "4.97.2" %}
+{% set version = "4.98.0" %}
 
 package:
   name: {{ name|lower }}
