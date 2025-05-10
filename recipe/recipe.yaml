@@ -20,7 +20,7 @@ source:
   - if: osx and arm64
     then:
       url: https://github.com/coder/code-server/releases/download/v${{ version }}/code-server-${{ version }}-macos-arm64.tar.gz
-      sha256: 66ef9563e3695ae4be9d4137e80b5e24d79828f15105233176cb605871a615c1,
+      sha256: 66ef9563e3695ae4be9d4137e80b5e24d79828f15105233176cb605871a615c1
 
 build:
   skip:
