@@ -29,7 +29,7 @@ build:
   skip:
     - win
     - osx and x86_64
-  number: 2
+  number: 3
 
 requirements:
   build:
