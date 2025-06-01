@@ -30,6 +30,8 @@ build:
     - win
     - osx and x86_64
   number: 1
+  dynamic_linking:
+    binary_relocation: false
 
 requirements:
   build:
