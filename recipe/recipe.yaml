@@ -14,7 +14,7 @@ source:
       url: https://github.com/coder/code-server/releases/download/v${{ version }}/code-server-${{ version }}-linux-amd64.tar.gz
       sha256: dd43f789bd218f56985d771306c19c4424cd75adcf9955a9183e546f81a6ce44
       target_directory: code-server
-  - if: linux and arm64
+  - if: linux and aarch64
     then:
       url: https://github.com/coder/code-server/releases/download/v${{ version }}/code-server-${{ version }}-linux-arm64.tar.gz
       sha256: 13eb5e281c93080a5a0cbb807892e675d98e9ccd5144a9d4dd39533977b94a32
