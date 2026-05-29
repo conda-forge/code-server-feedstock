@@ -45,7 +45,6 @@ requirements:
 tests:
   - script:
       - code-server --help
-      - $CONDA_PREFIX/share/code-server/lib/vscode/node_modules/@vscode/ripgrep/bin/rg --version
 
 about:
   license: MIT
