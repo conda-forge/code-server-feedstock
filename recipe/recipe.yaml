@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: code-server
-  version: "4.145.0"
+  version: "4.145.2"
 
 package:
   name: ${{ name|lower }}
@@ -12,17 +12,17 @@ source:
   - if: linux and x86_64
     then:
       url: https://github.com/coder/code-server/releases/download/v${{ version }}/code-server-${{ version }}-linux-amd64.tar.gz
-      sha256: 771bf6038658034d7caf509fcc44af50f0b8bdac5e738177b6cf9c4181dd3382
+      sha256: 2f6db6c3e8b733dd6b3aeee83532e148b2bae2e392353ba85452d03572348962
       target_directory: code-server
   - if: linux and aarch64
     then:
       url: https://github.com/coder/code-server/releases/download/v${{ version }}/code-server-${{ version }}-linux-arm64.tar.gz
-      sha256: 425d3bc5167c85dc070427d2aa93760083b02aec852ea9ce75c2906c99138f45
+      sha256: e867a34416e2da4a83496b09580001893e7a4e5bb58a0624c4fcd22819e7d53d
       target_directory: code-server
   - if: osx and arm64
     then:
       url: https://github.com/coder/code-server/releases/download/v${{ version }}/code-server-${{ version }}-macos-arm64.tar.gz
-      sha256: a79774d8d34eed785c1f831bc0125f7534bc21a0039bef8e8a2aa32463f9421a
+      sha256: d6699692f1e59d918517c81f9d2a4ef335132128cd45725b22236d5fe09636d4
       target_directory: code-server
 
 build:
